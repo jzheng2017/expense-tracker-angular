@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~materialize-css";
+
+main {
+  min-height: 100vh;
+}
+
+.container {
+  width: 100% !important;
+  max-width: 90%;
+}
+
+
