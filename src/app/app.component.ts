@@ -7,10 +7,8 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'expenses-tracker';
-  body;
+  title = 'lifestyle-tracker';
 
-  constructor(private http: HttpClient) {
-    http.get('http://localhost:8080/users', {responseType: 'text'}).subscribe(body => this.body = body);
+  constructor() {
   }
 }
