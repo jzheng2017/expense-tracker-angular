@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,9 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lifestyle-tracker';
+  title = 'Lifestyle Tracker';
 
-  constructor() {
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title);
   }
 }

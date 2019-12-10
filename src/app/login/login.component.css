@@ -1,8 +1,7 @@
-.example-container {
+.flex-container {
   display: flex;
-  flex-direction: column;
 }
 
-.example-container > * {
+.full-width {
   width: 100%;
 }
