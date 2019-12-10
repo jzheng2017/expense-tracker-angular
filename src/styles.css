@@ -7,6 +7,15 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.flex-container {
+  display: flex;
+  height:100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
 .fill-remaining-space {
   flex: 1 1 auto;
 }
@@ -18,4 +27,21 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.float-right {
+  float: right;
+}
+
+/* phone/tablet screen size */
+@media (max-width: 992px) {
+
+  .btn-block-sm {
+    width: 100% !important;
+  }
+
+}
+
+.margin-top-40 {
+  margin-top: 40px;
 }

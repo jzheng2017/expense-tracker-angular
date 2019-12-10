@@ -1,1 +1,32 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="margin-top-40">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register an account</mat-card-title>
+    </mat-card-header>
+    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Username" name="username" id="username" type="text" [(ngModel)]="registration.username" #username="ngModel" required minlength="3">
+        </mat-form-field>
+        <div *ngIf="username.invalid && username.dirty">
+          <li *ngIf="username.errors.required">Username is required</li>
+          <li *ngIf="username.errors.minlength">Username must be atleast {{username.errors.minlength.requiredLength}} characters</li>
+        </div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password" name="password" id="password" type="password" [(ngModel)]="registration.password" required minlength="8">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Confirm password" name="confirm_password" id="confirm_password" type="password" [(ngModel)]="registration.confirmPassword" required minlength="8">
+        </mat-form-field>  <mat-form-field class="full-width">
+          <input matInput placeholder="First name" name="first_name" id="first_name" type="text" [(ngModel)]="registration.firstName" required>
+        </mat-form-field>  <mat-form-field class="full-width">
+          <input matInput placeholder="Last name" name="last_name" id="last_name" type="text" [(ngModel)]="registration.lastName" required>
+        </mat-form-field>  <mat-form-field class="full-width">
+          <input matInput placeholder="Email" name="email" id="email" type="email" [(ngModel)]="registration.email" required email>
+      </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" class="float-right btn-block-sm" [disabled]="!registrationForm.valid" type="submit">Log in</button>
+    </form>
+  </mat-card>
+</div>
 

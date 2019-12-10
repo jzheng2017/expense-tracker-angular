@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Registration} from './dto/registration';
+import {UserService} from '../service/users/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  registration = new Registration('', '', '', '', '', '');
+  error = {};
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    this.registerUser();
+  }
+
+  registerUser() {
+    this.userService.register(this.registration).subscribe(response => {
+        console.log("success");
+        // return localStorage.setItem('token', response.token);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }
