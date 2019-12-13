@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Login} from './dto/login';
+import {UserService} from '../service/users/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,15 @@ export class LoginComponent implements OnInit {
 
   login = new Login('', '');
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.login);
+    this.userService.login(this.login).subscribe(response => {
+      localStorage.setItem('token', response.token);
+    });
   }
 }
